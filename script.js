@@ -64,7 +64,7 @@ const openNewTab = function(provider) {
             providerMetadata = metadata.solNonUk;
             break;
     }
-    let url = `http://${localIp}:8080/${providerMetadata}`
+    let url = `http://${localIp}:8080/?metadata=${providerMetadata}`
     window.open(url, '_blank').focus();
 }
 

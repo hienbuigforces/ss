@@ -12,7 +12,6 @@ const metadata = {
 ////////////////////////////
 // Selectors
 ////////////////////////////
-const txtLocalIp = document.querySelector('#txtLocalIp');
 const btnNavigateToPw = document.querySelector('#btnNavigateToPw');
 const btnNavigateToJardine = document.querySelector('#btnNavigateToJardine');
 const btnNavigateToSab = document.querySelector('#btnNavigateToSab');
@@ -20,9 +19,12 @@ const btnNavigateToSolUk = document.querySelector('#btnNavigateToSolUk');
 const btnNavigateToSolNonUk = document.querySelector('#btnNavigateToSolNonUk');
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
+const radLocalhost = document.querySelector('#radLocalhost');
+const radLocalIp = document.querySelector('#radLocalIp');
+const txtLocalIp = document.querySelector('#txtLocalIp');
 
 ////////////////////////////
-// Script content
+// Functions
 ////////////////////////////
 
 const closeModal = function() {
@@ -45,7 +47,7 @@ const navigateTo = function(provider) {
 }
 
 const openNewTab = function(provider) {
-    let localIp = txtLocalIp.value;
+    let domain = radLocalhost.checked ? 'localhost' : txtLocalIp.value;
     let providerMetadata = '';
     switch (provider) {
         case 'pw':
@@ -64,26 +66,40 @@ const openNewTab = function(provider) {
             providerMetadata = metadata.solNonUk;
             break;
     }
-    let url = `http://${localIp}:8080/?metadata=${providerMetadata}`
+    let url = `http://${domain}:8080/?metadata=${providerMetadata}`
     window.open(url, '_blank').focus();
 }
+
+////////////////////////////
+// Events
+////////////////////////////
 
 btnNavigateToPw.addEventListener('click', function() {
     navigateTo('pw');
 });
 
 btnNavigateToJardine.addEventListener('click', function() {
-    navigateTo('jardine')
+    navigateTo('jardine');
 });
 
 btnNavigateToSab.addEventListener('click', function() {
-    navigateTo('sab')
+    navigateTo('sab');
 });
 
 btnNavigateToSolUk.addEventListener('click', function() {
-    navigateTo('solUk')
+    navigateTo('solUk');
 });
 
 btnNavigateToSolNonUk.addEventListener('click', function() {
-    navigateTo('solNonUk')
+    navigateTo('solNonUk');
 });
+
+radLocalhost.addEventListener('change', function() {
+    radLocalhost.checked = true;
+    txtLocalIp.disabled = true;
+})
+
+radLocalIp.addEventListener('change', function() {
+    radLocalIp.checked = true;
+    txtLocalIp.disabled = false;
+})

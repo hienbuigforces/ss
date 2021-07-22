@@ -13,10 +13,15 @@
     <table>
         <tr>
             <td>
-                <label>Your local IP address:</label>
+                <label>Your local machine:</label>
             </td>
             <td>
-                <input id="txtLocalIp" size="12" type="text" value="192.168." />
+                <input type="radio" id="radLocalhost" name="localType" value="1" checked>
+                <label for="localhost">Localhost</label>
+                <br/>
+                <input type="radio" id="radLocalIp" name="localType" value="0">
+                <label for="localIp">Local IP: </label>
+                <input id="txtLocalIp" size="12" type="text" value="192.168." disabled/>
             </td>
         </tr>
         <tr>

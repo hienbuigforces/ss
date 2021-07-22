@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>SS Widget Navigation</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="#" />
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <label>Your local IP address:</label>
+            </td>
+            <td>
+                <input id="txtLocalIp" size="12" type="text" value="192.168." />
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <label>Navigate to:</label>
+            </td>
+            <td>
+                <button id="btnNavigateToPw" type="button">PW</button>
+                <button id="btnNavigateToJardine" type="button">Jardine</button>
+                <button id="btnNavigateToSab" type="button">SAB</button>
+                <button id="btnNavigateToSolUk" type="button">SOL UK</button>
+                <button id="btnNavigateToSolNonUk" type="button">SOL Non UK</button>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <label class="hidden">Please wait! Navigating</label>
+    <div class="modal hidden">
+        <p class="text-modal"></p>
+    </div>
+    <div class="overlay hidden"></div>
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

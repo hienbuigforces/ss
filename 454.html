@@ -1,35 +1,35 @@
 <!doctype html>
 <html>
-<head>
-</head>
-<style>
-  /* This is the font and button color style of SAMACO */
-  /* For other customer, we just need to add their font's name into here */
 
-  gf-service-booking-service-widget #gf-service-booking-service-widget {
-      font-family: myriad-pro,Arial,Verdana,Helvetica,sans-serif;
-  }
-  
-  /* Here is background color for all of buttons on the widget, if we need other color we just need to replace it here */
-  gf-service-booking-service-widget .button {
-        background-color: #2f427d;
-  }
-  
-</style>
-<body>
-  <!-- There are two places we normally need to change: meta-data attribute in the first tag and src attribute in second tag -->
-  <!-- For meta-data, we will place customer's meta-data into here. Below is for SAMACO -->
-  <!-- For scr, It is needed pointing to the correct url to get static/js/init.js file where the widget will load its functionalities to run normally -->
-  <!-- Normally, after building production, we will have the production link below, so I set it here. Just in case we need it -->
+  <head>
+    <link rel="shortcut icon" href="">
+  </head>
+  <style>
+    /* This is the font and button color style of SAMACO */
+    /* For other customer, we just need to add their font's name into here */
 
-  <!-- START USING SERVICE-BOOKING DROPCODE -->
+    gf-service-booking-service-widget #gf-service-booking-service-widget {
+      font-family: myriad-pro, Arial, Verdana, Helvetica, sans-serif;
+    }
 
-  <gf-service-booking-service-widget language="en"
-    locale="GB" template="default"
-    meta-data="ewoiZ3JvdXAiOiI4ZTc3M2RiMjk3Mjk4ODVkMzMwOWMyMGMzNWY0N2JjYTgxZDdjYjA3IiwKImdyb3Vwc29mdHdhcmUiOiIzMzIyNTRjM2YyYTkxZGIwNjA1ZTM0NDVhYzg5NGJlYmY3NzIzY2VlIgp9">
-  </gf-service-booking-service-widget>
-  <script type=text/javascript src="https://service-booking.rd.gforcesinternal.co.uk/static/js/init_dev.js"></script>
+    /* Here is background color for all of buttons on the widget, if we need other color we just need to replace it here */
+    gf-service-booking-service-widget .button {
+      background-color: #2f427d;
+    }
+  </style>
 
-   <!-- END USING SERVICE-BOOKING DROPCODE -->
-</body>
+  <body>
+    <!-- There are two places we normally need to change: meta-data attribute in the first tag and src attribute in second tag -->
+    <!-- For meta-data, we will place customer's meta-data into here. Below is for SAMACO -->
+    <!-- For scr, It is needed pointing to the correct url to get static/js/init.js file where the widget will load its functionalities to run normally -->
+    <!-- Normally, after building production, we will have the production link below, so I set it here. Just in case we need it -->
+
+    <!-- START USING SERVICE-BOOKING DROPCODE -->
+
+    <gf-service-booking-service-widget language="en" locale="GB" template="default" meta-data="ewoiZ3JvdXAiOiI4ZTc3M2RiMjk3Mjk4ODVkMzMwOWMyMGMzNWY0N2JjYTgxZDdjYjA3IiwKImdyb3Vwc29mdHdhcmUiOiIzMzIyNTRjM2YyYTkxZGIwNjA1ZTM0NDVhYzg5NGJlYmY3NzIzY2VlIgp9"></gf-service-booking-service-widget>
+    <script type="text/javascript" src="https://service-booking.rd.gforcesinternal.co.uk/static/js/init_dev.js"></script>
+
+    <!-- END USING SERVICE-BOOKING DROPCODE -->
+  </body>
+
 </html>

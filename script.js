@@ -9,6 +9,29 @@ const metadata = {
     solNonUk: "ewogICAgImdyb3VwIjogImIzOTJiZjEyMTk5NjNjZmFlYWQ0MmVhNzZjNjlkMjMzMDQ2NDJlNGEiLAogICAgImdyb3Vwc29mdHdhcmUiOiI0ZTg3ZTE1NDRhOWE3NGNlYzk2NmZkZmM5YWVhMzc0OGQxM2YwMDAzIgp9"
 };
 
+const config = {
+    pinewood: {
+        github: "pw.html",
+        metadata: "ewogICAgImdyb3VwIjogIjhlNzczZGIyOTcyOTg4NWQzMzA5YzIwYzM1ZjQ3YmNhODFkN2NiMDciLAogICAgImdyb3Vwc29mdHdhcmUiOiJiOTUwYjUzZTg2ODBjMjc4ZWUwMDBkMDA4ZTQ3MjM2NWIxMmQ5MTczIgp9",
+    },
+    sab: {
+        github: "sab.html",
+        metadata: "ewoiZ3JvdXAiOiI4ZTc3M2RiMjk3Mjk4ODVkMzMwOWMyMGMzNWY0N2JjYTgxZDdjYjA3IiwKImdyb3Vwc29mdHdhcmUiOiIzMzIyNTRjM2YyYTkxZGIwNjA1ZTM0NDVhYzg5NGJlYmY3NzIzY2VlIgp9",
+    },
+    jardine: {
+        github: "",
+        metadata: "ewogICAgImdyb3VwIjoiOTc1MjhlNmVmOTdmMzJiNWY2NTAzOWQ5OWJkODJiNGYwNDU3ZDdkMiIsCiAgICAiZ3JvdXBzb2Z0d2FyZSI6IjVmNDMwYTFjZTJhMDVhZmE2Njg2MjQ3NmRmNGY2NzUyNDE0ZDJjNGYiCn0=",
+    },
+    solUk: {
+        github: "",
+        metadata: "ewogICAgImdyb3VwIjogIjhhNGUwNTA3ZGI0MWU4YjE5NmVjMmVmZDBjNjgyODI4MDM0ZDdhZjciLAogICAgImdyb3Vwc29mdHdhcmUiOiJkMzlkODRkZmIxZDY4ZDI5ZTliNDE0MGY1YjEyOTEwODg2MDQ1MzFlIgp9",
+    },
+    solNonUk: {
+        github: "solNonUk.html",
+        metadata: "ewogICAgImdyb3VwIjogImIzOTJiZjEyMTk5NjNjZmFlYWQ0MmVhNzZjNjlkMjMzMDQ2NDJlNGEiLAogICAgImdyb3Vwc29mdHdhcmUiOiI0ZTg3ZTE1NDRhOWE3NGNlYzk2NmZkZmM5YWVhMzc0OGQxM2YwMDAzIgp9",
+    },
+}
+
 ////////////////////////////
 // Selectors
 ////////////////////////////
@@ -22,6 +45,7 @@ const overlay = document.querySelector(".overlay");
 const radLocalhost = document.querySelector('#radLocalhost');
 const radLocalIp = document.querySelector('#radLocalIp');
 const txtLocalIp = document.querySelector('#txtLocalIp');
+const radGitHub = document.querySelector('#radGitHub');
 
 ////////////////////////////
 // Functions
@@ -43,30 +67,36 @@ const navigateTo = function(provider) {
     setTimeout(function() {
         closeModal();
         openNewTab(provider);
-    }, 2000);
+    }, 1000);
 }
 
 const openNewTab = function(provider) {
-    let domain = radLocalhost.checked ? 'localhost' : txtLocalIp.value;
+    let domain = radLocalhost.checked ? 'localhost' : radLocalIp.checked ? txtLocalIp.value : undefined;
     let providerMetadata = '';
+    let githubSites = '';
     switch (provider) {
         case 'pw':
-            providerMetadata = metadata.pinewood;
+            providerMetadata = config.pinewood.metadata;
+            githubSites = config.pinewood.github;
             break;
         case 'sab':
-            providerMetadata = metadata.sab;
+            providerMetadata = config.sab.metadata;
+            githubSites = config.sab.github;
             break;
         case 'jardine':
-            providerMetadata = metadata.jardine;
+            providerMetadata = config.jardine.metadata;
+            githubSites = config.jardine.github;
             break;
         case 'solUk':
-            providerMetadata = metadata.solUk;
+            providerMetadata = config.solUk.metadata;
+            githubSites = config.solUk.github;
             break;
         case 'solNonUk':
-            providerMetadata = metadata.solNonUk;
+            providerMetadata = config.solNonUk.metadata;
+            githubSites = config.solNonUk.github;
             break;
     }
-    let url = `http://${domain}:8080/?metadata=${providerMetadata}`
+    const url = (typeof domain !== 'undefined') ? `http://${domain}:8080/?metadata=${providerMetadata}` : `${window.location.href}${githubSites}`;
     window.open(url, '_blank').focus();
 }
 
@@ -102,4 +132,9 @@ radLocalhost.addEventListener('change', function() {
 radLocalIp.addEventListener('change', function() {
     radLocalIp.checked = true;
     txtLocalIp.disabled = false;
+})
+
+radGitHub.addEventListener('change', function() {
+    radGitHub.checked = true;
+    txtLocalIp.disabled = true;
 })

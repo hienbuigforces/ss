@@ -149,7 +149,7 @@ const loadSites = function () {
         urls += `<tr>
                 <td>${count++}</td>
                 <td>    
-                    <a href="${rec.url}">${rec.siteName}</a>
+                    <a href="${rec.url}" target="_blank">${rec.siteName}</a>
                 </td>
                 <td>${rec.note}</td>
             </tr>`;

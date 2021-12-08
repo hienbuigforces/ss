@@ -1,5 +1,7 @@
 ////////////////////////////
 // Constants
+import { sites } from "./config.js";
+
 ////////////////////////////
 const metadata = {
     pinewood: "ewogICAgImdyb3VwIjogIjhlNzczZGIyOTcyOTg4NWQzMzA5YzIwYzM1ZjQ3YmNhODFkN2NiMDciLAogICAgImdyb3Vwc29mdHdhcmUiOiJiOTUwYjUzZTg2ODBjMjc4ZWUwMDBkMDA4ZTQ3MjM2NWIxMmQ5MTczIgp9",
@@ -30,7 +32,7 @@ const config = {
         localSite: "solNonUk.html",
         metadata: "ewogICAgImdyb3VwIjogImIzOTJiZjEyMTk5NjNjZmFlYWQ0MmVhNzZjNjlkMjMzMDQ2NDJlNGEiLAogICAgImdyb3Vwc29mdHdhcmUiOiI0ZTg3ZTE1NDRhOWE3NGNlYzk2NmZkZmM5YWVhMzc0OGQxM2YwMDAzIgp9",
     },
-}
+};
 
 ////////////////////////////
 // Selectors
@@ -46,31 +48,32 @@ const radLocalhost = document.querySelector('#radLocalhost');
 const radLocalIp = document.querySelector('#radLocalIp');
 const txtLocalIp = document.querySelector('#txtLocalIp');
 const radConfiguredPage = document.querySelector('#radConfiguredPage');
+const eleSites = document.querySelector('#links');
 
 ////////////////////////////
 // Functions
 ////////////////////////////
 
-const closeModal = function() {
+const closeModal = function () {
     modal.classList.add("hidden");
     overlay.classList.add("hidden");
 };
 
-const openModal = function(textContent) {
+const openModal = function (textContent) {
     modal.classList.remove("hidden");
     overlay.classList.remove("hidden");
     document.querySelector(".text-modal").innerHTML = textContent;
 };
 
-const navigateTo = function(provider) {
+const navigateTo = function (provider) {
     openModal(`Please wait! Navigating...`);
-    setTimeout(function() {
+    setTimeout(function () {
         closeModal();
         openNewTab(provider);
     }, 1000);
-}
+};
 
-const openNewTab = function(provider) {
+const openNewTab = function (provider) {
     let domain = radLocalhost.checked ? 'localhost' : radLocalIp.checked ? txtLocalIp.value : undefined;
     let providerMetadata = '';
     let localSite = '';
@@ -98,43 +101,54 @@ const openNewTab = function(provider) {
     }
     const url = (typeof domain !== 'undefined') ? `http://${domain}:8080/?metadata=${providerMetadata}` : `${window.location.href}${localSite}`;
     window.open(url, '_blank').focus();
-}
+};
 
 ////////////////////////////
 // Events
 ////////////////////////////
 
-btnNavigateToPw.addEventListener('click', function() {
+btnNavigateToPw.addEventListener('click', function () {
     navigateTo('pw');
 });
 
-btnNavigateToJardine.addEventListener('click', function() {
+btnNavigateToJardine.addEventListener('click', function () {
     navigateTo('jardine');
 });
 
-btnNavigateToSab.addEventListener('click', function() {
+btnNavigateToSab.addEventListener('click', function () {
     navigateTo('sab');
 });
 
-btnNavigateToSolUk.addEventListener('click', function() {
+btnNavigateToSolUk.addEventListener('click', function () {
     navigateTo('solUk');
 });
 
-btnNavigateToSolNonUk.addEventListener('click', function() {
+btnNavigateToSolNonUk.addEventListener('click', function () {
     navigateTo('solNonUk');
 });
 
-radLocalhost.addEventListener('change', function() {
+radLocalhost.addEventListener('change', function () {
     radLocalhost.checked = true;
     txtLocalIp.disabled = true;
-})
+});
 
-radLocalIp.addEventListener('change', function() {
+radLocalIp.addEventListener('change', function () {
     radLocalIp.checked = true;
     txtLocalIp.disabled = false;
-})
+});
 
-radConfiguredPage.addEventListener('change', function() {
+radConfiguredPage.addEventListener('change', function () {
     radConfiguredPage.checked = true;
     txtLocalIp.disabled = true;
-})
+});
+
+const loadSites = function () {
+    let urls = '';
+    sites.forEach((rec) => {
+        urls += `<li><a href="${rec.url}">${rec.siteName}</a> - ${rec.note}</li>`;
+    });
+    const html = `<ul>${urls}</ul>`;
+    eleSites.insertAdjacentHTML('beforeend', html);
+};
+
+window.addEventListener('load', loadSites);

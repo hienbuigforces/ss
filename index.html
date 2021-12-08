@@ -1,55 +1,57 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <title>SS Widget Navigation</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="#" />
-</head>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="shortcut icon" href="#"/>
+  </head>
 
-<body>
+  <body>
     <table>
-        <tr>
-            <td>
-                <label>Domain:</label>
-            </td>
-            <td>
-                <input type="radio" id="radLocalhost" name="type" value="1" checked>
-                <label for="localhost">Localhost</label>
-                <br/>
-                <input type="radio" id="radLocalIp" name="type" value="0">
-                <label for="localIp">Local IP: </label>
-                <input id="txtLocalIp" size="12" type="text" value="192.168." disabled/>
-                <br/>
-                <input type="radio" id="radConfiguredPage" name="type" value="0">
-                <label for="localSite">Configured page (Dev CodeBuild)</label>
-                <br/>
-                <input type="radio" id="radProdPage" name="type" value="0">
-                <label for="localSite">Production page (Prod CodeBuild)</label>
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                <label>Navigate to:</label>
-            </td>
-            <td>
-                <button id="btnNavigateToPw" type="button">PW</button>
-                <button id="btnNavigateToJardine" type="button">Jardine</button>
-                <button id="btnNavigateToSab" type="button">SAB</button>
-                <button id="btnNavigateToSolUk" type="button">SOL UK</button>
-                <button id="btnNavigateToSolNonUk" type="button">SOL Non UK</button>
-            </td>
-        </tr>
+      <tr>
+        <td>
+          <label>Domain:</label>
+        </td>
+        <td>
+          <input type="radio" id="radLocalhost" name="type" value="1" checked="checked">
+          <label for="localhost">Localhost</label>
+          <br/>
+          <input type="radio" id="radLocalIp" name="type" value="0">
+          <label for="localIp">Local IP:
+          </label>
+          <input id="txtLocalIp" size="12" type="text" value="192.168." disabled="disabled"/>
+          <br/>
+          <input type="radio" id="radConfiguredPage" name="type" value="0">
+          <label for="localSite">Configured page (Dev CodeBuild)</label>
+        </td>
+      </tr>
+      <tr>
+        <td align="right">
+          <label>Navigate to:</label>
+        </td>
+        <td>
+          <button id="btnNavigateToPw" type="button">PW</button>
+          <button id="btnNavigateToJardine" type="button">Jardine</button>
+          <button id="btnNavigateToSab" type="button">SAB</button>
+          <button id="btnNavigateToSolUk" type="button">SOL UK</button>
+          <button id="btnNavigateToSolNonUk" type="button">SOL Non UK</button>
+        </td>
+      </tr>
     </table>
     <br/>
+    <div>
+      <strong>🕸 Other links:</strong>
+      <a href="/samaco-prod.html" target="_blank">Samaco Production link (not V10)</a>
+    </div>
     <label class="hidden">Please wait! Navigating</label>
     <div class="modal hidden">
-        <p class="text-modal"></p>
+      <p class="text-modal"></p>
     </div>
     <div class="overlay hidden"></div>
     <script type="module" src="script.js"></script>
-</body>
+  </body>
 
 </html>

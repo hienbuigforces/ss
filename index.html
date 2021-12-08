@@ -16,15 +16,18 @@
                 <label>Domain:</label>
             </td>
             <td>
-                <input type="radio" id="radLocalhost" name="localType" value="1" checked>
+                <input type="radio" id="radLocalhost" name="type" value="1" checked>
                 <label for="localhost">Localhost</label>
                 <br/>
-                <input type="radio" id="radLocalIp" name="localType" value="0">
+                <input type="radio" id="radLocalIp" name="type" value="0">
                 <label for="localIp">Local IP: </label>
                 <input id="txtLocalIp" size="12" type="text" value="192.168." disabled/>
                 <br/>
-                <input type="radio" id="radConfiguredPage" name="localType" value="0">
+                <input type="radio" id="radConfiguredPage" name="type" value="0">
                 <label for="localSite">Configured page (Dev CodeBuild)</label>
+                <br/>
+                <input type="radio" id="radProdPage" name="type" value="0">
+                <label for="localSite">Production page (Prod CodeBuild)</label>
             </td>
         </tr>
         <tr>

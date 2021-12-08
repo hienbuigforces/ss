@@ -144,10 +144,24 @@ radConfiguredPage.addEventListener('change', function () {
 
 const loadSites = function () {
     let urls = '';
+    let count = 0;
     sites.forEach((rec) => {
-        urls += `<li><a href="${rec.url}">${rec.siteName}</a> - ${rec.note}</li>`;
+        urls += `<tr>
+                <td>${count++}</td>
+                <td>    
+                    <a href="${rec.url}">${rec.siteName}</a>
+                </td>
+                <td>${rec.note}</td>
+            </tr>`;
     });
-    const html = `<ul>${urls}</ul>`;
+    const html = `<table>
+        <tr>
+            <th>No</th>
+            <th>Url</th>
+            <th>Note</th>
+        </tr>
+            ${urls}
+        </table>`;
     eleSites.insertAdjacentHTML('beforeend', html);
 };
 

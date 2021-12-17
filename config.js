@@ -19,8 +19,12 @@ export const sites = [{
     url: "https://www.crownhonda.co.uk/online-service-booking/",
     note: "PW Prod"
 }, {
+    siteName: "Thurlow Nunn",
+    url: "https://www.green4motorcompany.co.uk/mazda/online-service-booking/",
+    note: "PW Prod"
+}, {
     siteName: "Snows (Toyota)",
-    url: "https://www.snows.co.uk/toyota/service-booking/",
+    url: "https://www.thurlownunn.co.uk/vauxhall/book-a-service/",
     note: "SAB Prod"
 }, {
     siteName: "Samaco (not v10)",

@@ -20,7 +20,7 @@ export const sites = [{
     note: "PW Prod"
 }, {
     siteName: "Thurlow Nunn",
-    url: "https://www.green4motorcompany.co.uk/mazda/online-service-booking/",
+    url: "https://www.thurlownunn.co.uk/vauxhall/book-a-service/",
     note: "PW Prod"
 }, {
     siteName: "Snows (Toyota)",

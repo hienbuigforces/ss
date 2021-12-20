@@ -24,7 +24,7 @@ export const sites = [{
     note: "PW Prod"
 }, {
     siteName: "Snows (Toyota)",
-    url: "https://www.thurlownunn.co.uk/vauxhall/book-a-service/",
+    url: "https://www.snows.co.uk/toyota/service-booking/",
     note: "SAB Prod"
 }, {
     siteName: "Samaco (not v10)",
